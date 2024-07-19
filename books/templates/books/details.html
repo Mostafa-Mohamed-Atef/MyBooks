@@ -1,0 +1,13 @@
+
+<h1>{{book.book_name}}</h1>
+<h3> {{book.author_name}}</h3>
+<h3> {{book.book_year}}</h3>
+<h3> {{book.book_genre}}</h3>
+<h3> {{book.page_number}}</h3>
+<h3> {{book.finished_date}}</h3>
+
+<button onclick="window.location.href='{% url "update" book.id %}'">Edit</button>
+<form action='{% url "deleting" book.id %}' method="POST">
+    {% csrf_token %}
+    <button type="submit" >Delete</button>
+</form>
