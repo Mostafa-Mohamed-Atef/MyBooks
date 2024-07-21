@@ -38,7 +38,7 @@ def update(request, book_id):
     form = BookForm(request.POST or None, instance=book)
     if form.is_valid():
         form.save()
-        messages.success(request, "Added Successfully")
+        messages.success(request, "Updated Successfully")
         return redirect('home')
     context = {
         'book':book,

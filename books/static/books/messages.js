@@ -1,6 +1,5 @@
-window.onload = function() {
-    var successMessage = document.getElementById('successs-message');
-    if(successMessage) {
-        alert(successMessage.textContent);
+setTimeout(function() {
+    if($('deleted-success').length > 0) {
+        $('deleted-success').remove();
     }
-}
+}, 2000)
