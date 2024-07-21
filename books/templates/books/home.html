@@ -1,6 +1,12 @@
 {% extends "books/base.html" %}
 {% block body %}
-<button style="margin:25px" onclick="window.open('{% url "register" %}')">Signup</button>
+{% if user.is_authenticated %}
+    <a href="{%url "profile" %}">{{user.username}}</a>
+    <button style="margin:25px" onclick="window.location.href='{% url "logout" %}'">Logout</button>
+{% else %}
+    <button style="margin:25px" onclick="window.location.href='{% url "register" %}'">Signup</button>
+    <p>if you already have an acount:<button style="margin:25px" onclick="window.location.href='{% url "login" %}'">Login</button> <p/>
+{% endif %}
 {% for book in book_list %}
 <div class="row">
     <div class="col-md-3 offset-md-2">

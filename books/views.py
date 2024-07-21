@@ -2,7 +2,7 @@ from django.shortcuts import *
 from django.http import *
 from .models import Book
 from django.http import *
-from django.template import loader
+from django.template import *
 from .forms import BookForm
 from django.contrib import messages
 # Create your views here.
@@ -27,7 +27,6 @@ def adding(request):
     if form.is_valid():
         form.save()
         return redirect('home')
-    
     context={
         'form':form
     }

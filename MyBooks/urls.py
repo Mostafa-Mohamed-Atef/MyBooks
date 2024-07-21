@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from books import views
+from books import views 
 from users import views as user_views
 from django.contrib.auth import views as auth_views
 
@@ -29,7 +29,8 @@ urlpatterns = [
     path('delete/<int:book_id>', views.deleting, name='deleting'),
     path('register/', user_views.register, name="register"),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'), #they are already built in views you don't need to create a view for them
-    path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
+    path('logout/', auth_views.LogoutView.as_view(next_page=''), name='logout'),
+    path('profile/', user_views.profile, name='profile')
 
 ]
 
