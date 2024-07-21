@@ -1,5 +1,5 @@
 setTimeout(function() {
-    if($('deleted-success').length > 0) {
-        $('deleted-success').remove();
+    if($('msg').length > 0) {
+        $('msg').remove();
     }
 }, 2000)
