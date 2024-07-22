@@ -9,7 +9,9 @@
 
 <button onclick="window.location.href='{% url "update" book.id %}'">Edit</button>
 <form action='{% url "deleting" book.id %}' method="POST">
+    {% if user.username == book.user_name %}
     {% csrf_token %}
     <button type="submit" >Delete</button>
+    {% endif %}
 </form>
 {% endblock body %}

@@ -24,9 +24,9 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name="home"),
-    path('<int:book_id>/', views.details, name='details'),
-    path('add/', views.adding, name="adding"),
+    path('', views.IndexClassView.as_view(), name="home"),
+    path('<int:pk>/', views.BookDetailsView.as_view(), name='details'),
+    path('add/', views.Adding.as_view(), name="adding"),
     path('update/<int:book_id>', views.update, name='update'),
     path('delete/<int:book_id>', views.deleting, name='deleting'),
     path('register/', user_views.register, name="register"),
