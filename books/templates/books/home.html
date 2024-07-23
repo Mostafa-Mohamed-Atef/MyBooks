@@ -7,6 +7,10 @@
     <button style="margin:25px" onclick="window.location.href='{% url "register" %}'">Signup</button>
     <p>if you already have an acount:<button style="margin:25px" onclick="window.location.href='{% url "login" %}'">Login</button> <p/>
 {% endif %}
+<form action="" method="GET" style="margin-bottom:15px">
+    <input type="search" name="searching">
+    <button type="submit">Search</button>
+</form> 
 {% for book in book_list %}
 <div class="row">
     <div class="col-md-3 offset-md-2">

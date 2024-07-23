@@ -8,12 +8,13 @@ from django.contrib import messages
 from django.views.generic import *
 from django.contrib.auth.decorators import *
 from django.core.paginator import *
+from django.db.models import Q
 # Create your views here.
 def home(request):
     book_list = Book.objects.all()
     search_var = request.GET.get('searching')
     if search_var != '' and search_var is not None:
-        book_list = book_list.filter(book_name__icontains = search_var)
+        book_list = book_list.filter(Q(book_name__icontains = search_var) | Q(author_name__icontains = search_var))
     paginator = Paginator(book_list, 2)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
