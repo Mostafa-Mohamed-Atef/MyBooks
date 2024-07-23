@@ -24,7 +24,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.IndexClassView.as_view(), name="home"),
+    path('', views.home, name="home"),
     path('<int:pk>/', views.BookDetailsView.as_view(), name='details'),
     path('add/', views.Adding.as_view(), name="adding"),
     path('update/<int:book_id>', views.update, name='update'),

@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static "books/static/books/home.css" %}">
-    <script src="books/static/books/messages.js"></script>
+    <link rel="stylesheet" href="{% static "books/home.css" %}">
+    <script src="{% static "books/messages.js" %}"></script>
     <title>Document</title>
 </head>
 <body>
@@ -14,6 +14,10 @@
             <div class="alert alert-{{ message.tags }} m-2" id="msg" role="alert">{{message}}</div>
         {% endfor %}
     {% endif %}
+    <form action="" method="GET">
+		<input type="search" name="searching">
+		<button type="submit">Search</button>
+    </form> 
     {% block body %}{% endblock body %}
 </body> 
 </html>
