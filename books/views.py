@@ -7,6 +7,7 @@ from .forms import BookForm
 from django.contrib import messages
 from django.views.generic import *
 from django.contrib.auth.decorators import *
+from django.core.paginator import Paginator
 # Create your views here.
 # def home(request):
 #     book_list = Book.objects.all()
@@ -19,7 +20,7 @@ class IndexClassView(ListView):
     model = Book
     template_name = 'books/home.html'
     context_object_name = 'book_list'
-
+    paginate_by = 2
 #for book details 
 # def details(request, book_id):
 #     book = Book.objects.get(id=book_id)

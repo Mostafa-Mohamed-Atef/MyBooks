@@ -20,6 +20,16 @@
         <button style="margin-bottom:15px" onclick="window.open('{% url 'details' book.id %}', '_blank')" > details</button>
     </div>
 </div>
-
 {% endfor %}
+{% if book_list.has_previous %} <!--for paging to prev page-->
+    <a href="?page=1">First</a>
+    <a href="?page={{book_list.previous_page_number}}">Prev</a>
+{% endif %}
+
+Page: {{ book_list.number }} of {{book_list.paginator.num_pages}}
+
+{% if book_list.has_next %} <!--for paging to next page-->
+<a href="?page={{book_list.next_page_number}}">next</a>
+<a href="?page={{book_list.paginator.num_pages}}">Last</a>
+{% endif %}
 {% endblock body %}
