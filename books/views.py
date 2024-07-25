@@ -1,13 +1,12 @@
-from django.shortcuts import *
-from django.http import *
+from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpRequest, HttpResponse
 from .models import Book
-from django.http import *
-from django.template import *
+from django.template import loader
 from .forms import BookForm
 from django.contrib import messages
-from django.views.generic import *
-from django.contrib.auth.decorators import *
-from django.core.paginator import *
+from django.views.generic import ListView, DetailView, CreateView
+from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 from django.db.models import Q
 # Create your views here.
 def home(request):

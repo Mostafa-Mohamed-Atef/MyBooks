@@ -1,6 +1,6 @@
 {% extends "books/base.html" %}
 {% block body %} 
-<form method="POST">
+<form method="POST" autocomplete="on">
     {% csrf_token %}
     {{form}}
     <button type="submit">Save</button>

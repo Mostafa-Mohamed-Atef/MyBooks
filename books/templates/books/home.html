@@ -7,7 +7,7 @@
     <button style="margin:25px" onclick="window.location.href='{% url "register" %}'">Signup</button>
     <p>if you already have an acount:<button style="margin:25px" onclick="window.location.href='{% url "login" %}'">Login</button> <p/>
 {% endif %}
-<form action="" method="GET" style="margin-bottom:15px">
+<form action="" method="GET" style="margin-bottom:15px" autocomplete="on">
     <input type="search" name="searching">
     <button type="submit">Search</button>
 </form> 
