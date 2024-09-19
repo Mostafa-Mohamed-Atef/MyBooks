@@ -1,12 +1,12 @@
-<!DOCTYPE html>
 {% load static %}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static "books/home.css" %}">
-    <script src="{% static "books/messages.js" %}"></script>
-    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'books/home.css' %}">  
+    <script src="{% static "/books/messages.js" %}"></script>
+    <title>MyBooks</title>
 </head>
 <body>
     {% if messages %}
@@ -14,11 +14,34 @@
     <div class="alert alert-{{ message.tags }} m-2" id="msg" role="alert">{{message}}</div>
     {% endfor %}
     {% endif %}
-    <button style="margin-bottom:15px" onclick="window.location.href='{% url "home" %}'">Home</button>
-    {% block body %}
-    <button style="margin:25px" onclick="window.location.href='{% url "register" %}'">Signup</button>
-    <p>if you already have an acount:<button style="margin:25px" onclick="window.location.href='{% url "login" %}'">Login</button> <p/>
-    <h1>Welcome to MyBooks</h1>
+    <div class="header">
+        <h1><a href="{% url 'base' %}">MyBooks</a></h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'register' %}">Sign Up</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+            </ul>
+        </nav>
+    </div>
+    {% comment %} <button style="margin-bottom:15px" onclick="window.location.href='{% url "home" %}'">Home</button> {% endcomment %}
+    {% block body %}    
+    {% comment%}<nav>
+        <ul>
+         <li><a href="/">Home</a></li>
+            <li><a href="{% url "register" %}">Sign Up</a></li>
+            <li><a href="{% url "login" %}">Login</a></li>
+        </ul>
+    </nav>
+ {% endcomment %}
+    {% comment %} <button style="margin:25px" onclick="window.location.href='{% url "register" %}'">Signup</button>
+    <p>if you already have an acount:<button style="margin:25px" onclick="window.location.href='{% url "login" %}'">Login</button> <p/> {% endcomment %}
+    <div class="container">
+        <div class="content">
+            <h2>Welcome to MyBooks</h2>
+            <p>Find opportunities to make a difference in your community!</p>
+            <button class="btn">Get Started</button>
+        </div>
+    </div>
     {% endblock body %}
 </body> 
 </html>

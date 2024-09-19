@@ -1,5 +1,15 @@
-<form method="POST">  
+{% extends "books/base.html" %}
+{% load static %}
+{% block body %}
+<div class="login-container">
+<h2>Login</h2>
+<form method="POST" class="login-form">  
     {% csrf_token %}
+    <div class="form-group">
     {{form}}
-    <button type="submit">Login</button>
+    </div>
+    <button type="submit" class="login-button">Login</button>
 </form>
+<p class="signup-link">Don't have an account? <a href="{% url 'register' %}">Sign up</a></p>
+</div>
+{% endblock %}
