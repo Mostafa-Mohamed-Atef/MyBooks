@@ -5,7 +5,7 @@ from django.urls import *
 class Book(models.Model):
     def __str__(self): #for making the object named with its name 
         return self.book_name
-    user_name = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    user_name = models.ForeignKey(User, on_delete=models.CASCADE, default=1, related_name='books')
     book_name = models.CharField(max_length=225)
     author_name = models.CharField(max_length=225)
     book_genre = models.CharField(max_length=225)

@@ -9,8 +9,14 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.db.models import Q
 # Create your views here.
+
+def base_home(request):
+    return render(request, 'books/base.html')
+
+
+@login_required
 def home(request):
-    book_list = Book.objects.all()
+    book_list = Book.objects.filter(user_name=request.user.id)
     search_var = request.GET.get('searching')
     if search_var != '' and search_var is not None:
         book_list = book_list.filter(Q(book_name__icontains = search_var) | Q(author_name__icontains = search_var))
